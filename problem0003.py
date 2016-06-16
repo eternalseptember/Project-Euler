@@ -6,20 +6,24 @@ import math
 
 def findLargestPrime(num):
 	number = int(num)
-	upperRange = number // 2
-	divisor = 2
-	largestPrime = 0
+	largestPrime = 1
 
-	if ((number == 2) or (number == 3)):
-		largestPrime = number
-	else:
-		while (divisor <= upperRange):
-			if (number % divisor == 0):
+	upperRange = int(math.sqrt(number)) + 1
+	divisor = 2
+	while (divisor < upperRange):
+		if (number % divisor == 0):
+			quotient = number // divisor
+			if isPrime(quotient):
+				largestPrime = quotient
+				break
+			else:
 				if isPrime(divisor):
-					largestPrime = divisor
-			divisor += 1
-	# If largestPrime is still zero, then number entered is a prime number
-	if (largestPrime == 0):
+					if (divisor > largestPrime):
+						largestPrime = divisor
+		divisor += 1
+	
+	# If largestPrime is still one, then number entered is a prime number
+	if (largestPrime == 1):
 		largestPrime = number
 
 	return largestPrime
@@ -46,13 +50,12 @@ def isPrime(num):
 		return True
 
 
-'''
 number = 600851475143
 largestPrime = findLargestPrime(number)
-print(largestPrime)
-'''
+print("Largest Prime: {0}".format(largestPrime))
 
-for i in list(range(2, 20)):
+'''
+for i in list(range(2, 21)):
 	largestPrime = findLargestPrime(i)
 	print("Number: {0}, Largest Prime: {1}".format(i, largestPrime))
-
+'''
