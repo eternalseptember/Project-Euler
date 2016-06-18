@@ -15,6 +15,8 @@ def isDivisibleByEachNumber(number):
 			return False
 	return True
 
+
+
 """
 11
 12 -> divisible by 2, 3, 4, 6
@@ -28,16 +30,34 @@ def isDivisibleByEachNumber(number):
 20 -> divisible by 2, 4, 5, 10
 """
 
-initNum = 2520
-maxProduct = 1
-for x in range(11,21):
-	maxProduct *= x
 
-result = isDivisibleByEachNumber(maxProduct)
-print("product: {0}, result: {1}".format(maxProduct, result))
+# Is evenly divisible by 1-10, so use this as a base.
+initNum = 2520 
 
-'''
+# Based on the math in the comments, tried multiplying by the primes.
 product = initNum * 11 * 13 * 17 * 19
 result = isDivisibleByEachNumber(product)
 print("product: {0}, result: {1}".format(product, result))
-'''
+# isDivisibleByEachNumber failed at multiplying by 16.
+
+
+# Then product was multipled by 16, and isDivisibleByEachNumber passed.
+product = initNum * 11 * 13 * 17 * 19 * 16
+result = isDivisibleByEachNumber(product)
+print("product: {0}, result: {1}".format(product, result))
+
+# Then product was multipled by 8, and isDivisibleByEachNumber passed.
+product = initNum * 11 * 13 * 17 * 19 * 8
+result = isDivisibleByEachNumber(product)
+print("product: {0}, result: {1}".format(product, result))
+
+# Then product was multipled by 4, and isDivisibleByEachNumber passed.
+product = initNum * 11 * 13 * 17 * 19 * 4
+result = isDivisibleByEachNumber(product)
+print("product: {0}, result: {1}".format(product, result))
+
+# Then product was multipled by 2, and isDivisibleByEachNumber passed.
+product = initNum * 11 * 13 * 17 * 19 * 2
+result = isDivisibleByEachNumber(product)
+print("product: {0}, result: {1}".format(product, result))
+# And this is the smallest number that is evenly divisible by 1-20
