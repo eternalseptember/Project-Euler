@@ -17,6 +17,8 @@ for x in range (1,101):
 	sumOfSquare += x*x
 	squareOfSum += x
 
-
+squareOfSum *= squareOfSum
+difference = squareOfSum - sumOfSquare
 
 print("sum of square: {0}, square of sum: {1}".format(sumOfSquare, squareOfSum))
+print("difference: {0}". format(difference))
