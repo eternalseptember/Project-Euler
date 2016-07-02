@@ -11,17 +11,18 @@
 
 def greatestProductOfString(longString, adjacentDigits):
 	lengthOfString = len(longString)
-	beginningIndex = 0
-	endingIndex = beginningIndex + adjacentDigits
 	greatestProduct = 0
 
-	while endingIndex < lengthOfString:
-		slice = longString[beginningIndex:endingIndex]
-		if int(slice) > greatestProduct:
-			greatestProduct = int(slice)
-
-		beginningIndex += 1
-		endingIndex = beginningIndex + adjacentDigits
+	# Index of string ranges from 0-999.
+	# Range excludes the final number.
+	for i in range(adjacentDigits, lengthOfString + 1):
+		slice = longString[(i - adjacentDigits) : i]
+		slice = list(slice)
+		product = 1
+		for j in slice:
+			product *= int(j)
+		if product > greatestProduct:
+			greatestProduct = product
 
 	return greatestProduct
 
