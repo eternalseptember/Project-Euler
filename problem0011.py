@@ -28,7 +28,7 @@ def searchAdjacentNumbersInGrid(grid, adjacentNum):
 	for y in range(0, listSize): # row
 		
 		for x in range(0, listSize): # column
-			# if (x+1) < listSize
+			# if (x+1) < adjacentNum
 			#   then don't search left
 			# if (x+adjacentNum >= listSize)
 			# then don't search right.
