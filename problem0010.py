@@ -7,8 +7,7 @@
 
 def sumOfPrimesBelow(n):
 	""" Modifying the Sieve of Erasthanos to generate sum. """
-
-	# create large array and initialize to true
+	# Create large array and initialize to true
 	maxLength = n
 	sieve = [True] * maxLength
 	primeSum = 0
@@ -20,6 +19,8 @@ def sumOfPrimesBelow(n):
 				sieve[j] = False
 
 	return primeSum
+
+
 
 sum = sumOfPrimesBelow(2000000)
 print("Sum: {0}".format(sum))
