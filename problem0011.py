@@ -14,11 +14,27 @@ def turnGridIntoArray(filename):
 	  index-able grid.
 	"""
 	with open(filename) as file:
-		grid = file.read().splitlines()
+		grid = []
+		for line in file:
+			grid.append(line.split())
 	return grid
+
+
+def searchAdjacentNumbersInGrid(grid, adjacentNum):
+	listSize = len(grid)
+	greatestProduct = 0
+
+	# range excludes last number
+	for y in range(0, listSize): # row
+		
+		for x in range(0, listSize): # column
+			# if (x+1) < listSize
+			#   then don't search left
+			# if (x+adjacentNum >= listSize)
+			# then don't search right.
 
 
 
 
 grid = turnGridIntoArray("problem0011-grid.txt")
-print(grid)
+searchAdjacentNumbersInGrid(grid, 4)
