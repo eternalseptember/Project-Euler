@@ -22,19 +22,43 @@ def turnGridIntoArray(filename):
 
 def searchAdjacentNumbersInGrid(grid, adjacentNum):
 	listSize = len(grid)
+	rangeLimit = listSize - adjacentNum + 1 # range excludes last number
 	greatestProduct = 0
 
-	# range excludes last number
-	for y in range(0, listSize): # row
-		
-		for x in range(0, listSize): # column
-			# if (x+1) < adjacentNum
-			#   then don't search left
-			# if (x+adjacentNum >= listSize)
-			# then don't search right.
+	# grid[0][0] = 08
+	# grid[1][0] = 49
+	# grid[0][1] = 02
+
+	# search vertically
+	# 51267216
+	for column in range(0, listSize):
+		for row in range(0, rangeLimit):
+			product = 1
+			for i in range(0, adjacentNum):
+				product *= int(grid[row+i][column])
+			if product > greatestProduct:
+				greatestProduct = product
+	
+	# search horizonally
+	# 48477312
+	for row in range(0, listSize):
+		for column in range(0, rangeLimit):
+			product = 1
+			for i in range(0, adjacentNum):
+				product *= int(grid[row][column+i])
+			if product > greatestProduct:
+				greatestProduct = product
+
+	# search left-to-right diagonal
+
+
+	# search right-to-left diagonal
+	
+	return greatestProduct
 
 
 
 
 grid = turnGridIntoArray("problem0011-grid.txt")
-searchAdjacentNumbersInGrid(grid, 4)
+greatestProduct = searchAdjacentNumbersInGrid(grid, 4)
+print(greatestProduct)
