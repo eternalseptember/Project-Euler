@@ -40,8 +40,11 @@ def isPrime(num):
 	else:
 		# Start checking at five.
 		# If the number is evenly divisible, then it's not prime.
-		# The for loop increments by six because the inner if statement
-		#   already checks the next odd number.
+		# The for loop increments by 6 because it's a multiple of 2 and 3,
+		# and those values can be avoided by alternating the increment
+		# between 2 and 4. The increment by 2 is accounted for inside
+		# inner 'for' loop. The increment by 4 skips over the value that's
+		# divisible by 3.
 		maxDivisor = int(math.sqrt(number))
 		for divisor in list(range(5, maxDivisor+1, 6)):
 			if ((number % divisor == 0) or (number % (divisor + 2) == 0)):

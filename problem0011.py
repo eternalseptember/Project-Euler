@@ -7,6 +7,7 @@
 # same direction (up, down, left, right, or diagonally) in the
 # 20x20 grid?
 
+
 def turnGridIntoArray(filename):
 	"""
 	Copied the grid and pasted it into a text file.
@@ -22,7 +23,7 @@ def turnGridIntoArray(filename):
 
 def searchAdjacentNumbersInGrid(grid, adjacentNum):
 	listSize = len(grid)
-	rangeLimit = listSize - adjacentNum + 1 # range excludes last number
+	rangeLimit = listSize - adjacentNum + 1  # range excludes last number
 	greatestProduct = 0
 
 	# grid[0][0] = 08
@@ -35,17 +36,17 @@ def searchAdjacentNumbersInGrid(grid, adjacentNum):
 		for row in range(0, rangeLimit):
 			product = 1
 			for i in range(0, adjacentNum):
-				product *= int(grid[row+i][column])
+				product *= int(grid[row + i][column])
 			if product > greatestProduct:
 				greatestProduct = product
-	
+
 	# search horizonally
 	# 48477312
 	for row in range(0, listSize):
 		for column in range(0, rangeLimit):
 			product = 1
 			for i in range(0, adjacentNum):
-				product *= int(grid[row][column+i])
+				product *= int(grid[row][column + i])
 			if product > greatestProduct:
 				greatestProduct = product
 
@@ -53,7 +54,7 @@ def searchAdjacentNumbersInGrid(grid, adjacentNum):
 
 
 	# search right-to-left diagonal
-	
+
 	return greatestProduct
 
 
@@ -62,3 +63,5 @@ def searchAdjacentNumbersInGrid(grid, adjacentNum):
 grid = turnGridIntoArray("problem0011-grid.txt")
 greatestProduct = searchAdjacentNumbersInGrid(grid, 4)
 print(greatestProduct)
+
+
